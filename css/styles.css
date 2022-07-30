@@ -594,6 +594,7 @@ footer .logo {
 }
 
 .footer-slogan {
+  display: block;
   margin-bottom: 20px;
 
   line-height: calc(16 / 14);
