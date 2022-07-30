@@ -138,7 +138,9 @@ input {
 }
 
 .card-item {
-  flex-basis: calc((100% - (var(--card-item) - 1) * var(--card-gap)) / var(--card-item));
+  flex-basis: calc(
+    (100% - (var(--card-item) - 1) * var(--card-gap)) / var(--card-item)
+  );
 }
 
 /* logo slyles */
@@ -243,9 +245,11 @@ input {
 
   background-color: var(--dark-bg-cl);
 
-  background-image: linear-gradient(to right,
+  background-image: linear-gradient(
+      to right,
       var(--overlay-header-cl),
-      var(--overlay-header-cl)),
+      var(--overlay-header-cl)
+    ),
     url(../images/hero/hero.jpg);
   background-repeat: no-repeat;
   background-position: center;
@@ -593,7 +597,6 @@ footer .logo {
   margin-bottom: 20px;
 
   line-height: calc(16 / 14);
-  font-weight: 700;
   text-transform: uppercase;
 }
 
@@ -652,9 +655,7 @@ footer .logo {
 .footer-user-mail {
   width: 358px;
   height: 50px;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  padding-left: 16px;
+  padding: 15px;
   margin-right: auto;
 
   border: 1px solid var(--border-subsc-cl);
@@ -663,12 +664,12 @@ footer .logo {
 
   background-color: transparent;
 
-  transition: color var(--animation);
+  transition: border-color var(--animation);
 }
 
 .footer-user-mail:hover,
 .footer-user-mail:focus {
-  color: var(--white-cl);
+  border-color: var(--white-cl);
 }
 
 .footer-user-mail[placeholder] {
@@ -678,6 +679,11 @@ footer .logo {
   letter-spacing: 0.03em;
 
   color: var(--footer-cont-cl);
+}
+
+.footer-user-mail:not(:placeholder-shown):required {
+  color: var(--footer-cont-cl);
+  border-color: var(--white-cl);
 }
 
 .footer-btn {
@@ -718,6 +724,7 @@ footer .logo {
 
   width: 528px;
   height: 581px;
+  padding: 40px;
 
   background-color: var(--white-cl);
   box-shadow: var(--shadow-team-modal);
@@ -748,14 +755,31 @@ footer .logo {
   border: none;
   border-radius: var(--radius-circle);
 
+  transition: color var(--animation);
+
   cursor: pointer;
 }
 
-.modal-form {
-  padding: 40px;
+.modal-btn:hover,
+.modal-btn:focus {
+  color: var(--accent-cl);
 }
 
-.modal-title {
+.modal-icon-close {
+  fill: currentColor;
+}
+
+/* Modal-register-form */
+
+.register-form {
+  text-align: center;
+}
+
+.register-title {
+  display: block;
+
+  margin-bottom: 12px;
+
   font-size: 20px;
   line-height: calc(23 / 20);
   text-align: center;
@@ -763,3 +787,102 @@ footer .logo {
   color: var(--title-txt-cl);
 }
 
+.register-group {
+  margin-bottom: 20px;
+}
+
+.register-label {
+  position: relative;
+  display: block;
+}
+
+.register-label:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.register-label-name {
+  display: block;
+  padding-left: 2px;
+  margin-bottom: 4px;
+
+  text-align: left;
+  font-size: 12px;
+  line-height: calc(14 / 12);
+  letter-spacing: 0.01em;
+}
+
+
+.register-input,
+.user-comment {
+  width: 100%;
+  padding: 12px;
+  padding-left: 42px;
+
+  color: var(--black-txt-cl);
+
+  border: 1px solid var(--ovarlay-modal-cl);
+  border-radius: var(--radius-standart);
+  outline: transparent;
+
+  transition: border-color var(--animation);
+}
+
+.user-comment {
+  padding: 12px 16px;
+  height: 120px;
+
+  resize: none;
+}
+
+.register-input:hover,
+.register-input:focus,
+.user-comment:hover,
+.user-comment:focus {
+  border-color: var(--accent-cl);
+}
+
+.contact-icon {
+  position: absolute;
+  top: 29px;
+  left: 10px;
+
+  transition: color var(--animation);
+}
+
+.register-input:hover + .contact-icon,
+.register-input:focus + .contact-icon {
+  fill: var(--accent-cl);
+}
+
+.agreement-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 30px;
+  gap: 8px;
+}
+
+.agreement-icon-check {
+  opacity: 0;
+  transition: opacity var(--animation);
+}
+
+.agreement-check:checked + .agreement-icon .agreement-icon-check {
+  opacity: 1;
+  transition: opacity var(--animation);
+}
+
+.agreement-check:checked + .agreement-icon .agreement-icon-uncheck {
+  opacity: 0;
+  transition: opacity var(--animation);
+}
+
+.agreement-text {
+  user-select: none;
+}
+
+.agreement-link {
+  text-underline-position: under;
+  color: var(--accent-cl);
+}
