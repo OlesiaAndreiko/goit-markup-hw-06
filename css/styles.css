@@ -140,8 +140,6 @@ input {
   min-width: 200px;
   min-height: 50px;
 
-  gap: 10px;
-
   font-family: inherit;
   font-weight: 700;
   font-size: 16px;
@@ -598,6 +596,10 @@ footer .logo {
 
   line-height: calc(16 / 14);
   text-transform: uppercase;
+}
+
+.basic-btn--icon {
+    gap: 10px;
 }
 
 /* social list */
